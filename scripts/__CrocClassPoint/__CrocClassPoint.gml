@@ -15,8 +15,8 @@ function __CrocClassPoint() constructor
         with(_inputStruct.pos)
         {
             other.x = x;
-            other.y = y;
-            other.z = z;
+            other.y = z; //Z-up
+            other.z = y;
         }
         
         return self;

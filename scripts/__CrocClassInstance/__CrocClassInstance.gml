@@ -19,16 +19,17 @@ function __CrocClassInstance() constructor
         with(_inputStruct.position)
         {
             other.x = x;
-            other.y = y;
-            other.z = z;
+            other.y = z; //Z-up
+            other.z = y;
         }
         
         with(_inputStruct.rotation)
         {
-            other.xRotation = radtodeg(_x); //Weird variable names
-            other.yRotation = radtodeg(_y);
-            other.zRotation = radtodeg(_z);
-            other.order     = struct_get(self, "order");
+            //Weird variable names
+            other.xRotation = radtodeg(_x);
+            other.yRotation = radtodeg(_z); //Z-up
+            other.zRotation = radtodeg(_y);
+            other.order     = struct_get(self, "order"); //TODO
         }
         
         matrix = matrix_build(x, y, z,   xRotation, yRotation, zRotation,   1, 1, 1);

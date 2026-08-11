@@ -56,11 +56,6 @@ function __CrocClassObject() constructor
             }
         }
         
-        if (array_length(instanceArray) <= 0)
-        {
-            array_push(instanceArray, new __CrocClassInstance());
-        }
-        
         if (struct_exists(_inputStruct, "object"))
         {
             __CrocDeserializeVertexBuffers(_inputStruct.object, vertexBufferArray, textureArray, pointDict[$ "Origin"]);

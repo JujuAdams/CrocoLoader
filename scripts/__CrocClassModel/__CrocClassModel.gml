@@ -57,7 +57,7 @@ function __CrocClassModel() constructor
         return self;
     }
     
-    static Submit = function()
+    static __Submit = function()
     {
         var _i = 0;
         repeat(array_length(vertexBufferArray))

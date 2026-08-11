@@ -65,6 +65,13 @@ function Crocotile() constructor
     static Submit = function()
     {
         var _i = 0;
+        repeat(array_length(modelArray))
+        {
+            modelArray[_i].__Submit();
+            ++_i;
+        }
+        
+        var _i = 0;
         repeat(array_length(prefabArray))
         {
             prefabArray[_i].__Submit(modelArray);

@@ -1,11 +1,10 @@
-gpu_set_ztestenable(true);
-gpu_set_zwriteenable(true);
-gpu_set_cullmode(cull_noculling);
+var _oldTexFilter = gpu_get_tex_filter();
+gpu_set_tex_filter(false);
 gpu_set_alphatestenable(true);
+matrix_set(matrix_world, matrix_build(0,0,0,   0,0,0,   80, 80, 80));
 
-matrix_set(matrix_world, matrix_build(640, 360, 0,   20, current_time/50, 0,   -50, -50, 1));
 crocotile.Submit();
-matrix_set(matrix_world, matrix_build_identity());
 
-gpu_set_ztestenable(false);
-gpu_set_zwriteenable(false);
+gpu_set_tex_filter(_oldTexFilter);
+gpu_set_alphatestenable(false);
+matrix_set(matrix_world, matrix_build_identity());

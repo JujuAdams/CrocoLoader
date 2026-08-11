@@ -1,0 +1,2 @@
+#macro CROCOTILE_VERSION  "0.0.0"
+#macro CROCOTILE_DATE     "2026-08-11"

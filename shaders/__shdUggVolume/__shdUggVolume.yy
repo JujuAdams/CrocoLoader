@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"__shdUggVolume",
+  "name":"__shdUggVolume",
+  "parent":{
+    "name":"(System)",
+    "path":"folders/Ugg/(System).yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

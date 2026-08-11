@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__UggConfig",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__UggConfig",
+  "parent":{
+    "name":"Ugg",
+    "path":"folders/Ugg.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

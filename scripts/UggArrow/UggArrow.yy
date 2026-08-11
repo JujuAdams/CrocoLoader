@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"UggArrow",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"UggArrow",
+  "parent":{
+    "name":"Shapes",
+    "path":"folders/Ugg/Shapes.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
