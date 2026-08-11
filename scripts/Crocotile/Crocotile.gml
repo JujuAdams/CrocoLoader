@@ -20,6 +20,8 @@ function Crocotile() constructor
         
         LoadFromString(buffer_read(_buffer, buffer_text));
         buffer_delete(_buffer);
+        
+        return self;
     }
     
     static LoadFromString = function(_string)
@@ -35,7 +37,7 @@ function Crocotile() constructor
             __CrocError($"Failed to parse string");
         }
         
-        __Clear();
+        Destroy();
         
         config = (new __CrocClassConfig()).__Deserialize(_json[$ "config"]);
         
@@ -45,7 +47,7 @@ function Crocotile() constructor
             var _i = 0;
             repeat(array_length(_modelArray))
             {
-                array_push(modelArray, (new __CrocClassModel()).__Deserialize(_modelArray[_i]));
+                array_push(modelArray, (new __CrocClassModel()).__Deserialize(_modelArray[_i], _i));
                 ++_i;
             }
         }
@@ -60,26 +62,86 @@ function Crocotile() constructor
                 ++_i;
             }
         }
+        
+        return self;
     }
     
     static Submit = function()
     {
+        var _modelArray = modelArray;
+        
         var _i = 0;
         repeat(array_length(modelArray))
         {
-            modelArray[_i].__Submit();
+            modelArray[_i].__Submit(_modelArray);
             ++_i;
         }
         
         var _i = 0;
         repeat(array_length(prefabArray))
         {
-            prefabArray[_i].__Submit(modelArray);
+            prefabArray[_i].__Submit(_modelArray);
             ++_i;
         }
+        
+        return self;
     }
     
-    static __Clear = function()
+    static Freeze = function()
+    {
+        var _i = 0;
+        repeat(array_length(modelArray))
+        {
+            modelArray[_i].__Freeze();
+            ++_i;
+        }
+        
+        var _i = 0;
+        repeat(array_length(prefabArray))
+        {
+            prefabArray[_i].__Freeze();
+            ++_i;
+        }
+        
+        return self;
+    }
+    
+    static Squash = function()
+    {
+        var _squashed = new __CrocClassSquashed();
+        
+        var _vertexBufferMap = ds_map_create();
+        var _vertexBufferArray = _squashed.vertexBufferDataArray;
+        
+        var _i = 0;
+        repeat(array_length(modelArray))
+        {
+            modelArray[_i].__Squash(_vertexBufferMap, _vertexBufferArray, modelArray);
+            ++_i;
+        }
+        
+        var _i = 0;
+        repeat(array_length(prefabArray))
+        {
+            prefabArray[_i].__Squash(_vertexBufferMap, _vertexBufferArray, modelArray);
+            ++_i;
+        }
+        
+        var _i = 0;
+        repeat(array_length(modelArray))
+        {
+            modelArray[_i].__ReleaseMemory();
+            ++_i;
+        }
+        
+        ds_map_destroy(_vertexBufferMap);
+        
+        Destroy();
+        
+        return _squashed;
+    }
+    
+    static Destroy = function()
     {
         if (is_struct(config))
         {

@@ -2,10 +2,7 @@ function __CrocClassModel() constructor
 {
     textureSprite = -1;
     imageFile = undefined;
-    vertexBuffer = undefined;
-    
     vertexBufferArray = [];
-    textureArray = [];
     
     
     
@@ -23,16 +20,24 @@ function __CrocClassModel() constructor
             imageFile = undefined;
         }
         
-        if (vertex_buffer_exists(vertexBuffer))
+        var _i = 0;
+        repeat(array_length(vertexBufferArray))
         {
-            vertex_delete_buffer(vertexBuffer);
-            vertexBuffer = undefined;
+            vertexBufferArray[_i].__Destroy();
+            ++_i;
         }
+        
+        array_resize(vertexBufferArray, 0);
         
         return self;
     }
     
-    static __Deserialize = function(_inputStruct)
+    static __ReleaseMemory = function()
+    {
+        textureSprite = -1;
+    }
+    
+    static __Deserialize = function(_inputStruct, _textureIndex)
     {
         if (struct_exists(_inputStruct, "texture"))
         {
@@ -51,18 +56,38 @@ function __CrocClassModel() constructor
         
         if (struct_exists(_inputStruct, "object"))
         {
-            __CrocDeserializeVertexBuffers(_inputStruct.object, vertexBufferArray, textureArray, undefined);
+            __CrocDeserializeVertexBuffers(_inputStruct.object, vertexBufferArray, undefined, _textureIndex);
         }
         
         return self;
     }
     
-    static __Submit = function()
+    static __Submit = function(_modelArray)
     {
         var _i = 0;
         repeat(array_length(vertexBufferArray))
         {
-            vertex_submit(vertexBufferArray[_i], pr_trianglelist, sprite_get_texture(textureSprite, 0));
+            vertexBufferArray[_i].__Submit(_modelArray);
+            ++_i;
+        }
+    }
+    
+    static __Freeze = function()
+    {
+        var _i = 0;
+        repeat(array_length(vertexBufferArray))
+        {
+            vertexBufferArray[_i].__Freeze();
+            ++_i;
+        }
+    }
+    
+    static __Squash = function(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray)
+    {
+        var _i = 0;
+        repeat(array_length(vertexBufferArray))
+        {
+            vertexBufferArray[_i].__Squash(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray);
             ++_i;
         }
     }

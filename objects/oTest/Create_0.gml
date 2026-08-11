@@ -1,2 +1,1 @@
-crocotile = new Crocotile();
-crocotile.LoadFromFile("sewer2.crocotile");
+crocotile = new Crocotile().LoadFromFile("sewer2.crocotile").Squash();

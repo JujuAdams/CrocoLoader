@@ -9,17 +9,19 @@ function __CrocClassObject() constructor
     pointDict = {};
     
     vertexBufferArray = [];
-    textureArray = [];
     
     
     
     static __Destroy = function()
     {
-        if (is_struct(vertexBuffer))
+        var _i = 0;
+        repeat(array_length(vertexBufferArray))
         {
-            vertexBuffer.__Destroy();
-            vertexBuffer = undefined;
+            vertexBufferArray[_i].__Destroy();
+            ++_i;
         }
+        
+        array_resize(vertexBufferArray, 0);
         
         return self;
     }
@@ -58,7 +60,7 @@ function __CrocClassObject() constructor
         
         if (struct_exists(_inputStruct, "object"))
         {
-            __CrocDeserializeVertexBuffers(_inputStruct.object, vertexBufferArray, textureArray, pointDict[$ "Origin"]);
+            __CrocDeserializeVertexBuffers(_inputStruct.object, vertexBufferArray, pointDict[$ "Origin"], undefined);
         }
         
         return self;
@@ -69,7 +71,27 @@ function __CrocClassObject() constructor
         var _i = 0;
         repeat(array_length(instanceArray))
         {
-            instanceArray[_i].__Submit(vertexBufferArray, textureArray, _modelArray);
+            instanceArray[_i].__Submit(vertexBufferArray, _modelArray);
+            ++_i;
+        }
+    }
+    
+    static __Freeze = function()
+    {
+        var _i = 0;
+        repeat(array_length(vertexBufferArray))
+        {
+            vertexBufferArray[_i].__Freeze();
+            ++_i;
+        }
+    }
+    
+    static __Squash = function(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray)
+    {
+        var _i = 0;
+        repeat(array_length(instanceArray))
+        {
+            instanceArray[_i].__Squash(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray, vertexBufferArray);
             ++_i;
         }
     }

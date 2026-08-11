@@ -37,24 +37,29 @@ function __CrocClassInstance() constructor
         return self;
     }
     
-    static __Submit = function(_vertexBufferArray, _textureIndexArray, _modelArray)
+    static __Submit = function(_vertexBufferArray, _modelArray)
     {
-        var _oldMatrix = matrix_get(matrix_world);
+        var _oldMatrix = matrix_get(matrix_world); //TODO - Optimize
         var _matrix = matrix_multiply(matrix, _oldMatrix);
         matrix_set(matrix_world, _matrix);
         
         var _i = 0;
         repeat(array_length(_vertexBufferArray))
         {
-            var _textureIndex = _textureIndexArray[_i];
-            if (is_numeric(_textureIndex))
-            {
-                vertex_submit(_vertexBufferArray[_i], pr_trianglelist, sprite_get_texture(_modelArray[_textureIndex].textureSprite, 0));
-            }
-            
+            _vertexBufferArray[_i].__Submit(_modelArray);
             ++_i;
         }
         
         matrix_set(matrix_world, _oldMatrix);
+    }
+    
+    static __Squash = function(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray, _vertexBufferArray)
+    {
+        var _i = 0;
+        repeat(array_length(_vertexBufferArray))
+        {
+            _vertexBufferArray[_i].__SquashWithMatrix(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray, matrix);
+            ++_i;
+        }
     }
 }

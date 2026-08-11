@@ -42,4 +42,24 @@ function __CrocClassLayer() constructor
             ++_i;
         }
     }
+    
+    static __Freeze = function()
+    {
+        var _i = 0;
+        repeat(array_length(objectArray))
+        {
+            objectArray[_i].__Freeze();
+            ++_i;
+        }
+    }
+    
+    static __Squash = function(_vertexBufferMap, _vertexBufferArray, _modelArray)
+    {
+        var _i = 0;
+        repeat(array_length(objectArray))
+        {
+            objectArray[_i].__Squash(_vertexBufferMap, _vertexBufferArray, _modelArray);
+            ++_i;
+        }
+    }
 }

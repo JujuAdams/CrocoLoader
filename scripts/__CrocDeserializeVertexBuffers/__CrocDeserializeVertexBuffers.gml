@@ -1,4 +1,9 @@
-function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _textureArray, _originPoint)
+/// @param inputArray
+/// @param vertexBufferArray
+/// @param originPoint
+/// @param fallbackTextureIndex
+
+function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _originPoint, _fallbackTextureIndex)
 {
     static _vertexFormat = (function()
     {
@@ -22,23 +27,23 @@ function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _textur
         var _zOrigin = _originPoint.z;
     }
     
+    var _textureToVertexBufferMap = ds_map_create();
+    
     var _i = 0;
     repeat(array_length(_inputArray))
     {
         var _input = _inputArray[_i];
         
-        var _texture = (_input[$ "texture"] ?? -1) + 1;
-        if (_texture >= array_length(_vertexBufferArray))
+        var _textureIndex = _input[$ "texture"] ?? _fallbackTextureIndex;
+        
+        var _vertexBuffer = _textureToVertexBufferMap[? _textureIndex];
+        if (_vertexBuffer == undefined)
         {
-            _textureArray[@ _texture] = (_texture == 0)? undefined : _texture-1;
-            
-            var _vertexBuffer = vertex_create_buffer();
+            _vertexBuffer = vertex_create_buffer();
             vertex_begin(_vertexBuffer, _vertexFormat);
-            _vertexBufferArray[@ _texture] = _vertexBuffer;
-        }
-        else
-        {
-            var _vertexBuffer = _vertexBufferArray[@ _texture];
+            
+            array_push(_vertexBufferArray, new __CrocClassIndexedVertexBuffer(_vertexBuffer, _textureIndex));
+            _textureToVertexBufferMap[? _textureIndex] = _vertexBuffer;
         }
         
         with(_input.position)
@@ -73,19 +78,19 @@ function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _textur
             var _y0 = _yPos + _vertexPosA.z; //Z-up
             var _z0 = _zPos + _vertexPosA.y;
             var _u0 = _UVsA.x;
-            var _v0 = 1 - _UVsA.y;
+            var _v0 = 1 - _UVsA.y; //Crocotile uses OpenGL norms so we have to flip for DirectX norms
             
             var _x1 = _xPos + _vertexPosB.x;
             var _y1 = _yPos + _vertexPosB.z; //Z-up
             var _z1 = _zPos + _vertexPosB.y;
             var _u1 = _UVsB.x;
-            var _v1 = 1 - _UVsB.y;
+            var _v1 = 1 - _UVsB.y; //Crocotile uses OpenGL norms so we have to flip for DirectX norms
             
             var _x2 = _xPos + _vertexPosC.x;
             var _y2 = _yPos + _vertexPosC.z; //Z-up
             var _z2 = _zPos + _vertexPosC.y;
             var _u2 = _UVsC.x;
-            var _v2 = 1 - _UVsC.y;
+            var _v2 = 1 - _UVsC.y; //Crocotile uses OpenGL norms so we have to flip for DirectX norms
             
             //What it should be:
             vertex_position_3d(_vertexBuffer, _x0, _y0, _z0); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u0, _v0);
@@ -98,21 +103,12 @@ function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _textur
         ++_i;
     }
     
-    var _i = array_length(_vertexBufferArray)-1;
+    var _i = 0;
     repeat(array_length(_vertexBufferArray))
     {
-        var _vertexBuffer = _vertexBufferArray[_i];
-        
-        if (is_handle(_vertexBuffer) && vertex_buffer_exists(_vertexBuffer))
-        {
-            vertex_end(_vertexBuffer);
-        }
-        else
-        {
-            array_delete(_vertexBufferArray, _i, 1);
-            array_delete(_textureArray, _i, 1);
-        }
-        
-        --_i;
+        vertex_end(_vertexBufferArray[_i].__vertexBuffer);
+        ++_i;
     }
+    
+    ds_map_destroy(_textureToVertexBufferMap);
 }
