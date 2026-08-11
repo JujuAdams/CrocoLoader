@@ -4,6 +4,8 @@ function Crocotile() constructor
     modelArray = [];
     prefabArray = [];
     
+    //TODO - Fetch tile palette, UV animation, "acts" (?!), misc
+    
     
     static LoadFromFile = function(_path)
     {

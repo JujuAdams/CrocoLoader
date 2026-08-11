@@ -1,7 +1,16 @@
 function __CrocClassModel() constructor
 {
     textureSprite = -1;
-    imageFile = undefined;
+    
+    imageName        = undefined;
+    imageFile        = undefined;
+    imageWrap        = undefined;
+    imageDoubleSided = undefined;
+    imageTransparent = undefined;
+    
+    //TODO - Fetch material
+    //TODO - Fetch image decal
+    
     vertexBufferArray = [];
     
     
@@ -54,10 +63,18 @@ function __CrocClassModel() constructor
             imageFile = (new __CrocClassImageFile()).__Deserialize(_inputStruct.imgFile);
         }
         
+        imageName        = _inputStruct[$ "imgName"       ];
+        imageWrap        = _inputStruct[$ "imgWrap"       ];
+        imageDoubleSided = _inputStruct[$ "imgDoubleSided"];
+        imageTransparent = _inputStruct[$ "imgTransparent"];
+        
         if (struct_exists(_inputStruct, "object"))
         {
             __CrocDeserializeVertexBuffers(_inputStruct.object, vertexBufferArray, undefined, _textureIndex);
         }
+        
+        //TODO - Fetch material
+        //TODO - Fetch image decal
         
         return self;
     }

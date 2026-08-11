@@ -1,8 +1,8 @@
 function __CrocClassObject() constructor
 {
-    type = undefined;
-    num  = undefined;
-    name = undefined;
+    type    = undefined;
+    name    = undefined;
+    visible = undefined;
     
     instanceArray = [];
     pointArray = [];
@@ -28,9 +28,9 @@ function __CrocClassObject() constructor
     
     static __Deserialize = function(_inputStruct)
     {
-        type = _inputStruct[$ "type"];
-        num  = _inputStruct[$ "num" ];
-        name = _inputStruct[$ "name"];
+        type    = _inputStruct[$ "type"   ];
+        name    = _inputStruct[$ "name"   ];
+        visible = _inputStruct[$ "visible"] ?? true;
         
         var _pointArray = _inputStruct[$ "points"];
         if (is_array(_pointArray))
@@ -53,7 +53,7 @@ function __CrocClassObject() constructor
             var _i = 0;
             repeat(array_length(_instanceArray))
             {
-                array_push(instanceArray, (new __CrocClassInstance()).__Deserialize(_instanceArray[_i]));
+                array_push(instanceArray, (new __CrocClassChildInstance()).__Deserialize(_instanceArray[_i]));
                 ++_i;
             }
         }
@@ -68,6 +68,8 @@ function __CrocClassObject() constructor
     
     static __Submit = function(_modelArray)
     {
+        if (not visible) return;
+        
         var _i = 0;
         repeat(array_length(instanceArray))
         {
@@ -88,6 +90,8 @@ function __CrocClassObject() constructor
     
     static __Squash = function(_outputVertexBufferMap, _outputVertexBufferArray, _modelArray)
     {
+        if (not visible) return;
+        
         var _i = 0;
         repeat(array_length(instanceArray))
         {

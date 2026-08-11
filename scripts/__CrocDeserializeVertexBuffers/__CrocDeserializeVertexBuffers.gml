@@ -55,6 +55,9 @@ function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _origin
         
         var _vertexArray = _input.vertices;
         var _uvArray     = _input.uvs;
+        var _colorArray  = _input[$ "colors"];
+        
+        //N.B. - We don't support bone weights
         
         var _faceArray = _input.faces;
         var _f = 0;
@@ -92,10 +95,26 @@ function __CrocDeserializeVertexBuffers(_inputArray, _vertexBufferArray, _origin
             var _u2 = _UVsC.x;
             var _v2 = 1 - _UVsC.y; //Crocotile uses OpenGL norms so we have to flip for DirectX norms
             
-            //What it should be:
-            vertex_position_3d(_vertexBuffer, _x0, _y0, _z0); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u0, _v0);
-            vertex_position_3d(_vertexBuffer, _x1, _y1, _z1); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u1, _v1);
-            vertex_position_3d(_vertexBuffer, _x2, _y2, _z2); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u2, _v2);
+            if (_colorArray == undefined)
+            {
+                vertex_position_3d(_vertexBuffer, _x0, _y0, _z0); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u0, _v0);
+                vertex_position_3d(_vertexBuffer, _x1, _y1, _z1); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u1, _v1);
+                vertex_position_3d(_vertexBuffer, _x2, _y2, _z2); vertex_color(_vertexBuffer, c_white, 1); vertex_texcoord(_vertexBuffer, _u2, _v2);
+            }
+            else
+            {
+                var _colorsA = _colorArray[_vertexA];
+                var _colorsB = _colorArray[_vertexB];
+                var _colorsC = _colorArray[_vertexC];
+                
+                var _colorA = ((0xFF*_colorsA.b) << 16) | ((0xFF*_colorsA.g) << 8) | (0xFF*_colorsA.r);
+                var _colorB = ((0xFF*_colorsB.b) << 16) | ((0xFF*_colorsB.g) << 8) | (0xFF*_colorsB.r);
+                var _colorC = ((0xFF*_colorsC.b) << 16) | ((0xFF*_colorsC.g) << 8) | (0xFF*_colorsC.r);
+                
+                vertex_position_3d(_vertexBuffer, _x0, _y0, _z0); vertex_color(_vertexBuffer, _colorA, _colorsA.a); vertex_texcoord(_vertexBuffer, _u0, _v0);
+                vertex_position_3d(_vertexBuffer, _x1, _y1, _z1); vertex_color(_vertexBuffer, _colorB, _colorsB.a); vertex_texcoord(_vertexBuffer, _u1, _v1);
+                vertex_position_3d(_vertexBuffer, _x2, _y2, _z2); vertex_color(_vertexBuffer, _colorC, _colorsC.a); vertex_texcoord(_vertexBuffer, _u2, _v2);
+            }
             
             ++_f;
         }

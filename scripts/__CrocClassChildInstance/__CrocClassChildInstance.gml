@@ -1,4 +1,4 @@
-function __CrocClassInstance() constructor
+function __CrocClassChildInstance() constructor
 {
     x = 0;
     y = 0;
@@ -8,6 +8,10 @@ function __CrocClassInstance() constructor
     yRotation = 0;
     zRotation = 0;
     
+    xScale = 1;
+    yScale = 1;
+    zScale = 1;
+    
     order = undefined;
     
     matrix = matrix_build_identity();
@@ -16,14 +20,14 @@ function __CrocClassInstance() constructor
     
     static __Deserialize = function(_inputStruct)
     {
-        with(_inputStruct.position)
+        with(_inputStruct[$ "position"])
         {
             other.x = x;
             other.y = z; //Z-up
             other.z = y;
         }
         
-        with(_inputStruct.rotation)
+        with(_inputStruct[$ "rotation"])
         {
             //Weird variable names
             other.xRotation = radtodeg(_x);
@@ -32,7 +36,15 @@ function __CrocClassInstance() constructor
             other.order     = struct_get(self, "order"); //TODO
         }
         
-        matrix = matrix_build(x, y, z,   xRotation, yRotation, zRotation,   1, 1, 1);
+        with(_inputStruct[$ "scale"])
+        {
+            //Weird variable names
+            other.xScale = x;
+            other.yScale = z; //Z-up
+            other.zScale = y;
+        }
+        
+        matrix = matrix_build(x, y, z,   xRotation, yRotation, zRotation,   xScale, yScale, zScale);
         
         return self;
     }
@@ -49,6 +61,8 @@ function __CrocClassInstance() constructor
             _vertexBufferArray[_i].__Submit(_modelArray);
             ++_i;
         }
+        
+        //TODO - Fetch properties
         
         matrix_set(matrix_world, _oldMatrix);
     }
