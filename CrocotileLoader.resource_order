@@ -1,0 +1,21 @@
+{
+  "FolderOrderSettings":[
+    {"name":"Crocotile Loader","order":2,"path":"folders/Crocotile Loader.yy",},
+    {"name":"(System)","order":1,"path":"folders/Crocotile Loader/(System).yy",},
+    {"name":"In a while, Crocotile","order":2,"path":"folders/Crocotile Loader/(System)/In a while, Crocotile.yy",},
+    {"name":"Classes","order":7,"path":"folders/Crocotile Loader/(System)/In a while, Crocotile/Classes.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"oTest","order":1,"path":"objects/oTest/oTest.yy",},
+    {"name":"__CrocClassImageFile","order":6,"path":"scripts/__CrocClassImageFile/__CrocClassImageFile.yy",},
+    {"name":"__CrocClassInstance","order":5,"path":"scripts/__CrocClassInstance/__CrocClassInstance.yy",},
+    {"name":"__CrocClassLayer","order":2,"path":"scripts/__CrocClassLayer/__CrocClassLayer.yy",},
+    {"name":"__CrocClassModel","order":1,"path":"scripts/__CrocClassModel/__CrocClassModel.yy",},
+    {"name":"__CrocClassObject","order":3,"path":"scripts/__CrocClassObject/__CrocClassObject.yy",},
+    {"name":"__CrocClassPoint","order":4,"path":"scripts/__CrocClassPoint/__CrocClassPoint.yy",},
+    {"name":"__CrocDeserializeObject","order":8,"path":"scripts/__CrocDeserializeObject/__CrocDeserializeObject.yy",},
+    {"name":"__CrocDeserializeVertexBuffers","order":9,"path":"scripts/__CrocDeserializeVertexBuffers/__CrocDeserializeVertexBuffers.yy",},
+    {"name":"__CrocTrace","order":1,"path":"scripts/__CrocTrace/__CrocTrace.yy",},
+    {"name":"__CrocEmptySprite","order":3,"path":"sprites/__CrocEmptySprite/__CrocEmptySprite.yy",},
+  ],
+}

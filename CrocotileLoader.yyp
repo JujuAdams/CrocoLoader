@@ -1,0 +1,54 @@
+{
+  "$GMProject":"v1",
+  "%Name":"CrocotileLoader",
+  "AudioGroups":[
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+  ],
+  "configs":{
+    "children":[],
+    "name":"Default",
+  },
+  "defaultScriptType":1,
+  "Folders":[
+    {"$GMFolder":"","%Name":"Crocotile Loader","folderPath":"folders/Crocotile Loader.yy","name":"Crocotile Loader","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"(System)","folderPath":"folders/Crocotile Loader/(System).yy","name":"(System)","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"In a while, Crocotile","folderPath":"folders/Crocotile Loader/(System)/In a while, Crocotile.yy","name":"In a while, Crocotile","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Classes","folderPath":"folders/Crocotile Loader/(System)/In a while, Crocotile/Classes.yy","name":"Classes","resourceType":"GMFolder","resourceVersion":"2.0",},
+  ],
+  "ForcedPrefabProjectReferences":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"sewer2.crocotile","CopyToMask":-1,"filePath":"datafiles","name":"sewer2.crocotile","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
+  "isEcma":false,
+  "LibraryEmitters":[],
+  "MetaData":{
+    "IDEVersion":"2026.0.0.16",
+  },
+  "name":"CrocotileLoader",
+  "resources":[
+    {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},},
+    {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
+    {"id":{"name":"__CrocClassConfig","path":"scripts/__CrocClassConfig/__CrocClassConfig.yy",},},
+    {"id":{"name":"__CrocClassImageFile","path":"scripts/__CrocClassImageFile/__CrocClassImageFile.yy",},},
+    {"id":{"name":"__CrocClassInstance","path":"scripts/__CrocClassInstance/__CrocClassInstance.yy",},},
+    {"id":{"name":"__CrocClassLayer","path":"scripts/__CrocClassLayer/__CrocClassLayer.yy",},},
+    {"id":{"name":"__CrocClassModel","path":"scripts/__CrocClassModel/__CrocClassModel.yy",},},
+    {"id":{"name":"__CrocClassObject","path":"scripts/__CrocClassObject/__CrocClassObject.yy",},},
+    {"id":{"name":"__CrocClassPoint","path":"scripts/__CrocClassPoint/__CrocClassPoint.yy",},},
+    {"id":{"name":"__CrocDeserializeObject","path":"scripts/__CrocDeserializeObject/__CrocDeserializeObject.yy",},},
+    {"id":{"name":"__CrocDeserializeVertexBuffers","path":"scripts/__CrocDeserializeVertexBuffers/__CrocDeserializeVertexBuffers.yy",},},
+    {"id":{"name":"__CrocError","path":"scripts/__CrocError/__CrocError.yy",},},
+    {"id":{"name":"__CrocTrace","path":"scripts/__CrocTrace/__CrocTrace.yy",},},
+    {"id":{"name":"Crocotile","path":"scripts/Crocotile/Crocotile.yy",},},
+    {"id":{"name":"__CrocEmptySprite","path":"sprites/__CrocEmptySprite/__CrocEmptySprite.yy",},},
+  ],
+  "resourceType":"GMProject",
+  "resourceVersion":"2.0",
+  "RoomOrderNodes":[
+    {"roomId":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
+  ],
+  "templateType":"game",
+  "TextureGroups":[
+    {"$GMTextureGroup":"","%Name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+  ],
+}
