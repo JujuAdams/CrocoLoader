@@ -19,8 +19,8 @@
   ],
   "name":"rMain",
   "parent":{
-    "name":"CrocotileLoader",
-    "path":"CrocotileLoader.yyp",
+    "name":"CrocoLoader",
+    "path":"CrocoLoader.yyp",
   },
   "parentRoom":null,
   "physicsSettings":{

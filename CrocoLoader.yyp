@@ -1,6 +1,6 @@
 {
   "$GMProject":"v1",
-  "%Name":"CrocotileLoader",
+  "%Name":"CrocoLoader",
   "AudioGroups":[
     {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -10,10 +10,10 @@
   },
   "defaultScriptType":1,
   "Folders":[
-    {"$GMFolder":"","%Name":"Crocotile Loader","folderPath":"folders/Crocotile Loader.yy","name":"Crocotile Loader","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"(System)","folderPath":"folders/Crocotile Loader/(System).yy","name":"(System)","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"In a while, Crocotile","folderPath":"folders/Crocotile Loader/(System)/In a while, Crocotile.yy","name":"In a while, Crocotile","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Classes","folderPath":"folders/Crocotile Loader/(System)/In a while, Crocotile/Classes.yy","name":"Classes","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"CrocoLoader","folderPath":"folders/CrocoLoader.yy","name":"CrocoLoader","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"(System)","folderPath":"folders/CrocoLoader/(System).yy","name":"(System)","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"In a while, Crocotile","folderPath":"folders/CrocoLoader/(System)/In a while, Crocotile.yy","name":"In a while, Crocotile","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Classes","folderPath":"folders/CrocoLoader/(System)/In a while, Crocotile/Classes.yy","name":"Classes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Ugg","folderPath":"folders/Ugg.yy","name":"Ugg","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"(System)","folderPath":"folders/Ugg/(System).yy","name":"(System)","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Volumes","folderPath":"folders/Ugg/(System)/Volumes.yy","name":"Volumes","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -34,7 +34,7 @@
   "MetaData":{
     "IDEVersion":"2026.0.0.16",
   },
-  "name":"CrocotileLoader",
+  "name":"CrocoLoader",
   "resources":[
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
     {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},},

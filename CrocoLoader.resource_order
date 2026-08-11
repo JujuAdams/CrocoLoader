@@ -1,9 +1,9 @@
 {
   "FolderOrderSettings":[
-    {"name":"Crocotile Loader","order":2,"path":"folders/Crocotile Loader.yy",},
-    {"name":"(System)","order":1,"path":"folders/Crocotile Loader/(System).yy",},
-    {"name":"In a while, Crocotile","order":2,"path":"folders/Crocotile Loader/(System)/In a while, Crocotile.yy",},
-    {"name":"Classes","order":2,"path":"folders/Crocotile Loader/(System)/In a while, Crocotile/Classes.yy",},
+    {"name":"CrocoLoader","order":2,"path":"folders/CrocoLoader.yy",},
+    {"name":"(System)","order":1,"path":"folders/CrocoLoader/(System).yy",},
+    {"name":"In a while, Crocotile","order":2,"path":"folders/CrocoLoader/(System)/In a while, Crocotile.yy",},
+    {"name":"Classes","order":2,"path":"folders/CrocoLoader/(System)/In a while, Crocotile/Classes.yy",},
     {"name":"Ugg","order":3,"path":"folders/Ugg.yy",},
     {"name":"(System)","order":1,"path":"folders/Ugg/(System).yy",},
     {"name":"Volumes","order":1,"path":"folders/Ugg/(System)/Volumes.yy",},

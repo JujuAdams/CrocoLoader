@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Crocotile",
   "parent":{
-    "name":"Crocotile Loader",
-    "path":"folders/Crocotile Loader.yy",
+    "name":"CrocoLoader",
+    "path":"folders/CrocoLoader.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

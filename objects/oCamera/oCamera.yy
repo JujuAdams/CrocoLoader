@@ -13,8 +13,8 @@
   "name":"oCamera",
   "overriddenProperties":[],
   "parent":{
-    "name":"CrocotileLoader",
-    "path":"CrocotileLoader.yyp",
+    "name":"CrocoLoader",
+    "path":"CrocoLoader.yyp",
   },
   "parentObjectId":null,
   "persistent":false,

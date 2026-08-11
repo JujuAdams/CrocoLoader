@@ -6,7 +6,7 @@
   "name":"__CrocClassImageFile",
   "parent":{
     "name":"Classes",
-    "path":"folders/Crocotile Loader/(System)/In a while, Crocotile/Classes.yy",
+    "path":"folders/CrocoLoader/(System)/In a while, Crocotile/Classes.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

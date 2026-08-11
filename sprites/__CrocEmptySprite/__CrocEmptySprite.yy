@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"(System)",
-    "path":"folders/Crocotile Loader/(System).yy",
+    "path":"folders/CrocoLoader/(System).yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

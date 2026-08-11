@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"ClassCamera",
   "parent":{
-    "name":"CrocotileLoader",
-    "path":"CrocotileLoader.yyp",
+    "name":"CrocoLoader",
+    "path":"CrocoLoader.yyp",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
